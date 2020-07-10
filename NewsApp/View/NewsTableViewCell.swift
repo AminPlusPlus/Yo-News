@@ -15,11 +15,20 @@ class NewsTableViewCell: UITableViewCell {
             //update view
             guard let article = article else {return}
             title.text = article.title
-            subTitle.text = article.content
+            sourceTitle.text = (article.source?.name)! + " ⚡️"
         }
     }
     
     //MARK:- UI Elements
+    private var sourceTitle : UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.text = "Reuters "
+        label.font = UIFont.preferredFont(forTextStyle: .subheadline, compatibleWith: .init(legibilityWeight: .bold))
+    
+        return label
+    }()
+
     private var newsImage : UIImageView = {
         let imageView = UIImageView()
         imageView.image = UIImage(systemName: "bolt.fill")
@@ -31,17 +40,11 @@ class NewsTableViewCell: UITableViewCell {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.text = "Title"
-        label.font = UIFont.preferredFont(forTextStyle: .title2)
+        label.numberOfLines = 3
+        label.font = UIFont.preferredFont(forTextStyle: .caption1)
         return label
     }()
-    private var subTitle : UILabel = {
-        let label = UILabel()
-        label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = "lLeft and Right constraints are absolute, they will always refer to the left/right of the screen or the control. Leading and trailing constraints are affected by the device locale"
-        label.font = UIFont.preferredFont(forTextStyle: .callout)
-        label.numberOfLines = 2
-        return label
-    }()
+
 
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -55,27 +58,28 @@ class NewsTableViewCell: UITableViewCell {
     private func setupView() {
         addSubview(newsImage)
         addSubview(title)
-        addSubview(subTitle)
+        addSubview(sourceTitle)
       
         selectionStyle = .none
         
         
         NSLayoutConstraint.activate([
+            
+            //sourceTitle
+            sourceTitle.leftAnchor.constraint(equalTo: self.leftAnchor, constant: 10),
+            sourceTitle.topAnchor.constraint(equalTo: self.topAnchor,constant: 5),
+            
             //news-image
-            newsImage.leftAnchor.constraint(equalTo: self.leftAnchor, constant: 10),
+            newsImage.rightAnchor.constraint(equalTo: self.rightAnchor, constant: -10),
             newsImage.centerYAnchor.constraint(equalTo: self.centerYAnchor),
             newsImage.heightAnchor.constraint(equalToConstant: 50),
             newsImage.widthAnchor.constraint(equalToConstant: 50),
            
             //title
-            title.leftAnchor.constraint(equalTo: self.newsImage.rightAnchor,constant: 10),
-            title.topAnchor.constraint(equalTo: self.topAnchor, constant: 5),
-            title.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -10),
-           
-            //subtitle
-            subTitle.leftAnchor.constraint(equalTo: self.newsImage.rightAnchor, constant: 10),
-            subTitle.topAnchor.constraint(equalTo: self.title.bottomAnchor,constant: 2),
-            subTitle.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -10)
+            title.leftAnchor.constraint(equalTo: self.leftAnchor,constant: 10),
+            title.topAnchor.constraint(equalTo: self.sourceTitle.bottomAnchor, constant: 5),
+            title.rightAnchor.constraint(equalTo: self.newsImage.leftAnchor, constant: -5),
+        
             
         ])
         

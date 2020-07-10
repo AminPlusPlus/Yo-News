@@ -38,7 +38,7 @@ class MainViewController: UIViewController {
         view = tableView
         tableView.delegate = self
         tableView.dataSource = self
-        tableView.rowHeight = 80
+        tableView.rowHeight = 120
         tableView.register(NewsTableViewCell.self, forCellReuseIdentifier: "cell")
     }
 
