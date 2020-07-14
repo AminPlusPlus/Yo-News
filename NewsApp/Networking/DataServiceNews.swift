@@ -6,9 +6,11 @@
 //  Copyright © 2020 Aminjoni Abdullozoda. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 class DataServiceNews: Networking {
+    
+    static var cache = NSCache<NSString,UIImage>()
 
     func fetch(forUrl url: String, completionHandler: @escaping (([Any]?,Error?) -> Void)) {
        

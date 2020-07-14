@@ -15,7 +15,9 @@ class NewsTableViewCell: UITableViewCell {
             //update view
             guard let article = article else {return}
             title.text = article.title
-            sourceTitle.text = (article.source?.name)! + " ⚡️"
+            sourceTitle.text = (article.source?.name)!
+            self.newsImage.image = nil
+            self.fetchImage(imageArticle: article.urlToImage ?? "")
         }
     }
     
@@ -34,6 +36,7 @@ class NewsTableViewCell: UITableViewCell {
         imageView.image = UIImage(systemName: "bolt.fill")
         imageView.tintColor = .orange
         imageView.translatesAutoresizingMaskIntoConstraints = false
+        imageView.contentMode  = .scaleToFill
         return imageView
     }()
     private var title : UILabel = {
@@ -72,8 +75,8 @@ class NewsTableViewCell: UITableViewCell {
             //news-image
             newsImage.rightAnchor.constraint(equalTo: self.rightAnchor, constant: -10),
             newsImage.centerYAnchor.constraint(equalTo: self.centerYAnchor),
-            newsImage.heightAnchor.constraint(equalToConstant: 50),
-            newsImage.widthAnchor.constraint(equalToConstant: 50),
+            newsImage.heightAnchor.constraint(equalToConstant: 70),
+            newsImage.widthAnchor.constraint(equalToConstant: 100),
            
             //title
             title.leftAnchor.constraint(equalTo: self.leftAnchor,constant: 10),
@@ -86,6 +89,38 @@ class NewsTableViewCell: UITableViewCell {
     }
 
     
+    private func fetchImage(imageArticle : String) {
+       
+        let cacheString = NSString(string: imageArticle)
+        if let image = DataServiceNews.cache.object(forKey: cacheString) {
+            self.newsImage.image = image
+        }
+        else {
+        
+            guard let urlImage = URL(string: imageArticle)  else {return}
+           
+            let imageService = URLSession.shared.dataTask(with: urlImage) { [weak self] (data, responce, error) in
+                
+                guard let self = self else {return}
+              
+                guard  error == nil else {return}
+                guard let responce  = responce as? HTTPURLResponse, responce.statusCode == 200 else {return}
+                guard let data = data else {return}
+                
+                guard let image = UIImage(data: data) else {return}
+                DataServiceNews.cache.setObject(image, forKey: cacheString)
+                
+                DispatchQueue.main.async {
+                    self.newsImage.image = image
+                }
+                
+            }
+            
+            imageService.resume()
+       
+        }
+       
+    }
     
     
     
