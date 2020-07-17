@@ -8,18 +8,26 @@
 
 import UIKit
 
-class MainViewController: UIViewController {
+class MainViewController: CustomYoNewsViewController {
     
     //MARK:- UI Elements
     var tableView = UITableView()
     var viewModel : NewsViewModelType?
     
+    let infoView : UIView =  {
+        let view = UIView()
+        
+        return view
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        title = "News"
-        
+        hideNavigationBar()
         setupTableView()
+        
+ 
+        
         
         viewModel = NewsViewModel(DataServiceNews())
         
@@ -33,6 +41,11 @@ class MainViewController: UIViewController {
             
         })
     }
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        hideNavigationBar()
+    }
+
 
     fileprivate func setupTableView() {
         view = tableView

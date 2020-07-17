@@ -14,10 +14,25 @@ class NewsTableViewCell: UITableViewCell {
         didSet {
             //update view
             guard let article = article else {return}
-            title.text = article.title
+            content.text = article.title
             sourceTitle.text = (article.source?.name)!
-            self.newsImage.image = nil
-            self.fetchImage(imageArticle: article.urlToImage ?? "")
+            
+            let dateFormater = DateFormatter()
+            dateFormater.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
+        
+
+            if let dateString = article.publishedAt,
+                let date = dateFormater.date(from: dateString)  {
+                publishedData.text = dateFormater.string(from: date)
+            }
+            
+           
+            self.newsImage.image = UIImage(named: "defaul-image-news")
+            
+            if let urlImage = article.urlToImage {
+                 self.fetchImage(imageArticle: urlImage)
+            }
+           
         }
     }
     
@@ -39,13 +54,21 @@ class NewsTableViewCell: UITableViewCell {
         imageView.contentMode  = .scaleToFill
         return imageView
     }()
-    private var title : UILabel = {
+    private var content : UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.text = "Title"
         label.numberOfLines = 3
         label.font = UIFont.preferredFont(forTextStyle: .caption1)
         return label
+    }()
+    
+    private var publishedData : UILabel = {
+       let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.font = UIFont.preferredFont(forTextStyle: .footnote)
+       return label
+        
     }()
 
 
@@ -59,9 +82,13 @@ class NewsTableViewCell: UITableViewCell {
    
     //MARK:- Setup View
     private func setupView() {
-        addSubview(newsImage)
-        addSubview(title)
-        addSubview(sourceTitle)
+        
+        addSubViews([newsImage,
+                     content,
+                     sourceTitle,
+                     publishedData
+        ])
+
       
         selectionStyle = .none
         
@@ -79,9 +106,13 @@ class NewsTableViewCell: UITableViewCell {
             newsImage.widthAnchor.constraint(equalToConstant: 100),
            
             //title
-            title.leftAnchor.constraint(equalTo: self.leftAnchor,constant: 10),
-            title.topAnchor.constraint(equalTo: self.sourceTitle.bottomAnchor, constant: 5),
-            title.rightAnchor.constraint(equalTo: self.newsImage.leftAnchor, constant: -5),
+            content.leftAnchor.constraint(equalTo: self.leftAnchor,constant: 10),
+            content.topAnchor.constraint(equalTo: self.sourceTitle.bottomAnchor, constant: 5),
+            content.rightAnchor.constraint(equalTo: self.newsImage.leftAnchor, constant: -5),
+            
+            //published date
+            publishedData.leftAnchor.constraint(equalTo: self.leftAnchor,constant: 10),
+            publishedData.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -10),
         
             
         ])
@@ -89,6 +120,8 @@ class NewsTableViewCell: UITableViewCell {
     }
 
     
+    /// Fetch Image Data
+    /// - Parameter imageArticle: URL image coming from fetched data
     private func fetchImage(imageArticle : String) {
        
         let cacheString = NSString(string: imageArticle)

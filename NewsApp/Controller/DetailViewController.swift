@@ -9,7 +9,7 @@
 import UIKit
 import WebKit
 
-class DetailViewController: UIViewController,WKNavigationDelegate {
+class DetailViewController: CustomYoNewsViewController ,WKNavigationDelegate {
     
     var detailArticle : Article? {
         didSet {
@@ -35,7 +35,7 @@ class DetailViewController: UIViewController,WKNavigationDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        showNavigationBar()
         // Do any additional setup after loading the view.
         startSpinner(forView: self.view, style: .large)
         

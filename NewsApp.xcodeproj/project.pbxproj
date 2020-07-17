@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0D48450424C260ED0025F1FF /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D48450324C260ED0025F1FF /* UIView.swift */; };
+		0D48450A24C26AE50025F1FF /* CustomYoNewsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D48450924C26AE50025F1FF /* CustomYoNewsViewController.swift */; };
+		0D48450C24C26B100025F1FF /* YoNewsNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D48450B24C26B100025F1FF /* YoNewsNavigationController.swift */; };
 		0D77B82F24B388B500CB28BA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D77B82E24B388B500CB28BA /* AppDelegate.swift */; };
 		0D77B83124B388B500CB28BA /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D77B83024B388B500CB28BA /* SceneDelegate.swift */; };
 		0D77B83324B388B500CB28BA /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D77B83224B388B500CB28BA /* MainViewController.swift */; };
@@ -35,6 +38,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0D48450324C260ED0025F1FF /* UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
+		0D48450924C26AE50025F1FF /* CustomYoNewsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomYoNewsViewController.swift; sourceTree = "<group>"; };
+		0D48450B24C26B100025F1FF /* YoNewsNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YoNewsNavigationController.swift; sourceTree = "<group>"; };
 		0D77B82B24B388B500CB28BA /* Yo!News.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Yo!News.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		0D77B82E24B388B500CB28BA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0D77B83024B388B500CB28BA /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -74,6 +80,25 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0D48450524C263A50025F1FF /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				0D48450D24C26B130025F1FF /* NavigationController */,
+				0D77B86424B3F6EF00CB28BA /* DetailViewController.swift */,
+				0D77B83224B388B500CB28BA /* MainViewController.swift */,
+				0D48450924C26AE50025F1FF /* CustomYoNewsViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		0D48450D24C26B130025F1FF /* NavigationController */ = {
+			isa = PBXGroup;
+			children = (
+				0D48450B24C26B100025F1FF /* YoNewsNavigationController.swift */,
+			);
+			path = NavigationController;
+			sourceTree = "<group>";
+		};
 		0D77B82224B388B400CB28BA = {
 			isa = PBXGroup;
 			children = (
@@ -101,10 +126,9 @@
 				0D77B86624B3FC1D00CB28BA /* Extension */,
 				0D77B85724B3942F00CB28BA /* ViewModel */,
 				0D77B85424B3938100CB28BA /* View */,
+				0D48450524C263A50025F1FF /* Controller */,
 				0D77B82E24B388B500CB28BA /* AppDelegate.swift */,
 				0D77B83024B388B500CB28BA /* SceneDelegate.swift */,
-				0D77B86424B3F6EF00CB28BA /* DetailViewController.swift */,
-				0D77B83224B388B500CB28BA /* MainViewController.swift */,
 				0D77B83724B388B700CB28BA /* Assets.xcassets */,
 				0D77B83924B388B700CB28BA /* LaunchScreen.storyboard */,
 				0D77B83C24B388B700CB28BA /* Info.plist */,
@@ -159,6 +183,7 @@
 			isa = PBXGroup;
 			children = (
 				0D77B86724B3FC3C00CB28BA /* ViewController.swift */,
+				0D48450324C260ED0025F1FF /* UIView.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -263,6 +288,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0D48450424C260ED0025F1FF /* UIView.swift in Sources */,
 				0D77B86524B3F6EF00CB28BA /* DetailViewController.swift in Sources */,
 				0D77B83324B388B500CB28BA /* MainViewController.swift in Sources */,
 				0D77B85224B38E8D00CB28BA /* News+Article.swift in Sources */,
@@ -273,7 +299,9 @@
 				0D77B85F24B3C4D500CB28BA /* DataServiceNews.swift in Sources */,
 				0D77B85D24B3C22400CB28BA /* NewsViewModelType.swift in Sources */,
 				0D77B83124B388B500CB28BA /* SceneDelegate.swift in Sources */,
+				0D48450A24C26AE50025F1FF /* CustomYoNewsViewController.swift in Sources */,
 				0D77B85B24B3C16400CB28BA /* Networking.swift in Sources */,
+				0D48450C24C26B100025F1FF /* YoNewsNavigationController.swift in Sources */,
 				0D77B86124B3D71D00CB28BA /* Box.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
