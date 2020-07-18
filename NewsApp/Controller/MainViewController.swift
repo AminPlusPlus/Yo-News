@@ -52,7 +52,8 @@ class MainViewController: CustomYoNewsViewController {
         tableView.delegate = self
         tableView.dataSource = self
         tableView.rowHeight = 120
-        tableView.register(NewsTableViewCell.self, forCellReuseIdentifier: "cell")
+        tableView.register(NewsTableViewCell.self, forCellReuseIdentifier: "NewsCell")
+        tableView.register(QuoteTableViewCell.self, forCellReuseIdentifier: "QuoteCell")
     }
 
 }
@@ -64,11 +65,20 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! NewsTableViewCell
-        cell.article = viewModel?.articleItem(forIndexPath: indexPath)
-        return cell
+        let newsCell = tableView.dequeueReusableCell(withIdentifier: "NewsCell", for: indexPath) as! NewsTableViewCell
+
+        let quoteCell = tableView.dequeueReusableCell(withIdentifier: "QuoteCell") as! QuoteTableViewCell
+        
+        if indexPath.row == 0 {
+            return quoteCell
+        } else {
+        
+        newsCell.article = viewModel?.articleItem(forIndexPath: indexPath)
+        
+        return newsCell
+        }
     }
-    
+        
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let article = viewModel?.articleItem(forIndexPath: indexPath)
         let detailVC = DetailViewController()
@@ -76,8 +86,6 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource {
         
         navigationController?.pushViewController(detailVC, animated: true)
     }
-    
-    
-
+        
 }
 

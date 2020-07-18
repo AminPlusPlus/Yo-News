@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0D15A00324C39EC100FF687F /* QuoteTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D15A00224C39EC100FF687F /* QuoteTableViewCell.swift */; };
 		0D48450424C260ED0025F1FF /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D48450324C260ED0025F1FF /* UIView.swift */; };
 		0D48450A24C26AE50025F1FF /* CustomYoNewsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D48450924C26AE50025F1FF /* CustomYoNewsViewController.swift */; };
 		0D48450C24C26B100025F1FF /* YoNewsNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D48450B24C26B100025F1FF /* YoNewsNavigationController.swift */; };
@@ -38,6 +39,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0D15A00224C39EC100FF687F /* QuoteTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuoteTableViewCell.swift; sourceTree = "<group>"; };
 		0D48450324C260ED0025F1FF /* UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
 		0D48450924C26AE50025F1FF /* CustomYoNewsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomYoNewsViewController.swift; sourceTree = "<group>"; };
 		0D48450B24C26B100025F1FF /* YoNewsNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YoNewsNavigationController.swift; sourceTree = "<group>"; };
@@ -166,6 +168,7 @@
 			isa = PBXGroup;
 			children = (
 				0D77B85524B393A100CB28BA /* NewsTableViewCell.swift */,
+				0D15A00224C39EC100FF687F /* QuoteTableViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -292,6 +295,7 @@
 				0D77B86524B3F6EF00CB28BA /* DetailViewController.swift in Sources */,
 				0D77B83324B388B500CB28BA /* MainViewController.swift in Sources */,
 				0D77B85224B38E8D00CB28BA /* News+Article.swift in Sources */,
+				0D15A00324C39EC100FF687F /* QuoteTableViewCell.swift in Sources */,
 				0D77B85624B393A100CB28BA /* NewsTableViewCell.swift in Sources */,
 				0D77B85924B3C14400CB28BA /* NewViewModel.swift in Sources */,
 				0D77B82F24B388B500CB28BA /* AppDelegate.swift in Sources */,
