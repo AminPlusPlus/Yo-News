@@ -11,11 +11,27 @@ import UIKit
 class QuoteTableViewCell: UITableViewCell {
     
     //MARK:- UI Elements
+    
+    private let yoNews : UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        let titleAttribute = NSMutableAttributedString(string: "YO!NEWS", attributes:
+            [.font : UIFont.systemFont(ofSize: 25, weight: .bold)]
+        )
+        let timeAttribute = NSAttributedString(string: "\n18 JULY", attributes: [.font : UIFont.systemFont(ofSize: 25, weight: .bold),.foregroundColor : UIColor.darkGray ])
+        
+        titleAttribute.append(timeAttribute)
+        label.attributedText = titleAttribute
+        label.numberOfLines = 2
+        
+        return label
+    }()
+    
     private let quoteImage  : UIImageView = {
         let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
-        imageView.tintColor = .systemOrange
-        imageView.image =  UIImage(systemName: "text.quote")
+        imageView.tintColor = .darkGray
+        imageView.image = UIImage(systemName: "paragraph")
         
         return imageView
     }()
@@ -23,8 +39,8 @@ class QuoteTableViewCell: UITableViewCell {
     private let quoteLabel : UILabel = {
        let label = UILabel()
        label.translatesAutoresizingMaskIntoConstraints = false
-        label.numberOfLines = 5
-       label.text = "Be who you are and say what you feel, because those who mind don't matter and those who matter don't mind"
+       label.numberOfLines = 5
+       label.text = "“If you want to lift yourself up, lift up someone else.”"
         label.font = UIFont.preferredFont(forTextStyle: .callout)
         
        return label
@@ -39,19 +55,23 @@ class QuoteTableViewCell: UITableViewCell {
     }
     
     fileprivate func setupView(){
-        addSubViews([quoteImage,quoteLabel])
+        addSubViews([yoNews,quoteLabel])
         
         
         NSLayoutConstraint.activate([
             
-            //quote image
-            quoteImage.leftAnchor.constraint(equalTo: self.leftAnchor, constant: 0),
-            quoteImage.centerYAnchor.constraint(equalTo: self.centerYAnchor),
-            quoteImage.heightAnchor.constraint(equalToConstant: 80),
-            quoteImage.widthAnchor.constraint(equalToConstant: 80),
+            //yo news
+            yoNews.leftAnchor.constraint(equalTo: self.leftAnchor, constant: 10),
+            yoNews.centerYAnchor.constraint(equalTo: self.centerYAnchor),
+            
+//            //quote image
+//            quoteImage.leftAnchor.constraint(equalTo: self.leftAnchor, constant: 0),
+//            quoteImage.centerYAnchor.constraint(equalTo: self.centerYAnchor),
+//            quoteImage.heightAnchor.constraint(equalToConstant: 80),
+//            quoteImage.widthAnchor.constraint(equalToConstant: 80),
             
             //quote label
-            quoteLabel.leftAnchor.constraint(equalTo: quoteImage.rightAnchor, constant: 10),
+            quoteLabel.leadingAnchor.constraint(equalTo: yoNews.trailingAnchor, constant: 10),
             quoteLabel.centerYAnchor.constraint(equalTo: self.centerYAnchor),
             quoteLabel.rightAnchor.constraint(equalTo: self.rightAnchor, constant: -10)
             

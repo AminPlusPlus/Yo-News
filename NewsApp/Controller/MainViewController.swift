@@ -86,6 +86,18 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource {
         
         navigationController?.pushViewController(detailVC, animated: true)
     }
+   
+    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        
+        let shareAction = UIContextualAction(style: .normal, title: "Share") { (action, view, completionHandler) in
+            
+        }
+        shareAction.backgroundColor = .darkGray
+        shareAction.image = UIImage(systemName: "square.and.arrow.up")
+        return UISwipeActionsConfiguration(actions: [shareAction])
+    }
+    
+   
         
 }
 

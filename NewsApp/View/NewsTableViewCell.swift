@@ -51,7 +51,8 @@ class NewsTableViewCell: UITableViewCell {
         imageView.image = UIImage(systemName: "bolt.fill")
         imageView.tintColor = .orange
         imageView.translatesAutoresizingMaskIntoConstraints = false
-        imageView.contentMode  = .scaleToFill
+        imageView.contentMode  = .scaleAspectFill
+        imageView.clipsToBounds = true
         return imageView
     }()
     private var content : UILabel = {
@@ -102,8 +103,8 @@ class NewsTableViewCell: UITableViewCell {
             //news-image
             newsImage.rightAnchor.constraint(equalTo: self.rightAnchor, constant: -10),
             newsImage.centerYAnchor.constraint(equalTo: self.centerYAnchor),
-            newsImage.heightAnchor.constraint(equalToConstant: 70),
-            newsImage.widthAnchor.constraint(equalToConstant: 100),
+            newsImage.heightAnchor.constraint(equalToConstant: 100),
+            newsImage.widthAnchor.constraint(equalToConstant: 120),
            
             //title
             content.leftAnchor.constraint(equalTo: self.leftAnchor,constant: 10),
