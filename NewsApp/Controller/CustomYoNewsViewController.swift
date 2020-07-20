@@ -12,13 +12,8 @@ class CustomYoNewsViewController: UIViewController {
 
     
     
-    func hideNavigationBar()  {
-        navigationController?.navigationBar.isHidden = true
-    }
-
-    
-    func showNavigationBar()  {
-        navigationController?.navigationBar.isHidden = false
+    func hideNavigationBar(hidden:Bool)  {
+        navigationController?.setNavigationBarHidden(hidden, animated: true)
     }
 
 }

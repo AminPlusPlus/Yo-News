@@ -11,27 +11,41 @@ import UIKit
 class MainViewController: CustomYoNewsViewController {
     
     //MARK:- UI Elements
-    var tableView = UITableView()
-    var viewModel : NewsViewModelType?
+    private let yoNews : UILabel = {
+           let label = UILabel()
+          
+           let titleAttribute = NSMutableAttributedString(string: "YO!NEWS", attributes:
+               [.font : UIFont.systemFont(ofSize: 20, weight: .bold)]
+           )
+        label.attributedText = titleAttribute
+           return label
+       }()
+    fileprivate var tableView = UITableView()
     
-    let infoView : UIView =  {
+    
+    
+    
+    fileprivate var viewModel : NewsViewModelType?
+    
+    
+    
+    private let infoView : UIView =  {
         let view = UIView()
         
         return view
     }()
     
+
     override func viewDidLoad() {
         super.viewDidLoad()
+        navigationItem.leftBarButtonItem = UIBarButtonItem(customView: yoNews)
         // Do any additional setup after loading the view.
-        hideNavigationBar()
         setupTableView()
-        
- 
-        
-        
         viewModel = NewsViewModel(DataServiceNews())
         
         startSpinner(forView: self.view, style: .large)
+        
+        
         viewModel?.values.bind(listener: { [unowned self] (_ ) in
             
             DispatchQueue.main.async {
@@ -43,9 +57,8 @@ class MainViewController: CustomYoNewsViewController {
     }
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        hideNavigationBar()
+       
     }
-
 
     fileprivate func setupTableView() {
         view = tableView
@@ -66,17 +79,11 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let newsCell = tableView.dequeueReusableCell(withIdentifier: "NewsCell", for: indexPath) as! NewsTableViewCell
-
-        let quoteCell = tableView.dequeueReusableCell(withIdentifier: "QuoteCell") as! QuoteTableViewCell
-        
-        if indexPath.row == 0 {
-            return quoteCell
-        } else {
         
         newsCell.article = viewModel?.articleItem(forIndexPath: indexPath)
         
         return newsCell
-        }
+        
     }
         
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

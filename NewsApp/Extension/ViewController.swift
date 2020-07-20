@@ -30,7 +30,6 @@ extension UIViewController {
     
     func stopSpinner(forView view:UIView) {
         for case let indicator as UIActivityIndicatorView in view.subviews {
-            print("Indicator")
             guard indicator.accessibilityIdentifier == "spinner" else {return}
             indicator.startAnimating()
             indicator.removeFromSuperview()

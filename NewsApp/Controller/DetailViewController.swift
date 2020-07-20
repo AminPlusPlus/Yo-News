@@ -35,7 +35,7 @@ class DetailViewController: CustomYoNewsViewController ,WKNavigationDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        showNavigationBar()
+        hideNavigationBar(hidden: false)
         // Do any additional setup after loading the view.
         startSpinner(forView: self.view, style: .large)
         
