@@ -3,11 +3,12 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		0D15A00324C39EC100FF687F /* QuoteTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D15A00224C39EC100FF687F /* QuoteTableViewCell.swift */; };
+		0D41E62324CCDF2200E28492 /* Yo_NewsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D41E62224CCDF2200E28492 /* Yo_NewsUITests.swift */; };
 		0D48450424C260ED0025F1FF /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D48450324C260ED0025F1FF /* UIView.swift */; };
 		0D48450A24C26AE50025F1FF /* CustomYoNewsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D48450924C26AE50025F1FF /* CustomYoNewsViewController.swift */; };
 		0D48450C24C26B100025F1FF /* YoNewsNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D48450B24C26B100025F1FF /* YoNewsNavigationController.swift */; };
@@ -31,6 +32,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		0D41E62524CCDF2200E28492 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 0D77B82324B388B500CB28BA /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 0D77B82A24B388B500CB28BA;
+			remoteInfo = NewsApp;
+		};
 		0D77B84224B388B700CB28BA /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 0D77B82324B388B500CB28BA /* Project object */;
@@ -42,6 +50,9 @@
 
 /* Begin PBXFileReference section */
 		0D15A00224C39EC100FF687F /* QuoteTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuoteTableViewCell.swift; sourceTree = "<group>"; };
+		0D41E62024CCDF2200E28492 /* Yo!NewsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Yo!NewsUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		0D41E62224CCDF2200E28492 /* Yo_NewsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Yo_NewsUITests.swift; sourceTree = "<group>"; };
+		0D41E62424CCDF2200E28492 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0D48450324C260ED0025F1FF /* UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
 		0D48450924C26AE50025F1FF /* CustomYoNewsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomYoNewsViewController.swift; sourceTree = "<group>"; };
 		0D48450B24C26B100025F1FF /* YoNewsNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YoNewsNavigationController.swift; sourceTree = "<group>"; };
@@ -73,6 +84,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		0D41E61D24CCDF2200E28492 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		0D77B82824B388B500CB28BA /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -92,6 +110,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0D41E62124CCDF2200E28492 /* Yo!NewsUITests */ = {
+			isa = PBXGroup;
+			children = (
+				0D41E62224CCDF2200E28492 /* Yo_NewsUITests.swift */,
+				0D41E62424CCDF2200E28492 /* Info.plist */,
+			);
+			path = "Yo!NewsUITests";
+			sourceTree = "<group>";
+		};
 		0D48450524C263A50025F1FF /* Controller */ = {
 			isa = PBXGroup;
 			children = (
@@ -116,6 +143,7 @@
 			children = (
 				0D77B82D24B388B500CB28BA /* NewsApp */,
 				0D77B84424B388B700CB28BA /* NewsAppTests */,
+				0D41E62124CCDF2200E28492 /* Yo!NewsUITests */,
 				0D77B82C24B388B500CB28BA /* Products */,
 				ABACFF99896500163D2B345B /* Pods */,
 				717ACEF658F0E49B0BDC340D /* Frameworks */,
@@ -127,6 +155,7 @@
 			children = (
 				0D77B82B24B388B500CB28BA /* Yo!News.app */,
 				0D77B84124B388B700CB28BA /* NewsAppTests.xctest */,
+				0D41E62024CCDF2200E28492 /* Yo!NewsUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -220,13 +249,30 @@
 				666C210454BF5919BF2336F2 /* Pods-NewsAppTests.debug.xcconfig */,
 				F33FC4CF5B8621A7C5DC63F2 /* Pods-NewsAppTests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		0D41E61F24CCDF2200E28492 /* Yo!NewsUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 0D41E62924CCDF2200E28492 /* Build configuration list for PBXNativeTarget "Yo!NewsUITests" */;
+			buildPhases = (
+				0D41E61C24CCDF2200E28492 /* Sources */,
+				0D41E61D24CCDF2200E28492 /* Frameworks */,
+				0D41E61E24CCDF2200E28492 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				0D41E62624CCDF2200E28492 /* PBXTargetDependency */,
+			);
+			name = "Yo!NewsUITests";
+			productName = "Yo!NewsUITests";
+			productReference = 0D41E62024CCDF2200E28492 /* Yo!NewsUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
 		0D77B82A24B388B500CB28BA /* NewsApp */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 0D77B84A24B388B700CB28BA /* Build configuration list for PBXNativeTarget "NewsApp" */;
@@ -271,10 +317,14 @@
 		0D77B82324B388B500CB28BA /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 1150;
+				LastSwiftUpdateCheck = 1160;
 				LastUpgradeCheck = 1150;
 				ORGANIZATIONNAME = "Aminjoni Abdullozoda";
 				TargetAttributes = {
+					0D41E61F24CCDF2200E28492 = {
+						CreatedOnToolsVersion = 11.6;
+						TestTargetID = 0D77B82A24B388B500CB28BA;
+					};
 					0D77B82A24B388B500CB28BA = {
 						CreatedOnToolsVersion = 11.5;
 					};
@@ -299,11 +349,19 @@
 			targets = (
 				0D77B82A24B388B500CB28BA /* NewsApp */,
 				0D77B84024B388B700CB28BA /* NewsAppTests */,
+				0D41E61F24CCDF2200E28492 /* Yo!NewsUITests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		0D41E61E24CCDF2200E28492 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		0D77B82924B388B500CB28BA /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -387,6 +445,14 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		0D41E61C24CCDF2200E28492 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0D41E62324CCDF2200E28492 /* Yo_NewsUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		0D77B82724B388B500CB28BA /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -421,6 +487,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		0D41E62624CCDF2200E28492 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 0D77B82A24B388B500CB28BA /* NewsApp */;
+			targetProxy = 0D41E62524CCDF2200E28492 /* PBXContainerItemProxy */;
+		};
 		0D77B84324B388B700CB28BA /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 0D77B82A24B388B500CB28BA /* NewsApp */;
@@ -440,6 +511,46 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		0D41E62724CCDF2200E28492 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = L4M78CKJZX;
+				INFOPLIST_FILE = "Yo!NewsUITests/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.6;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.Yo-NewsUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = NewsApp;
+			};
+			name = Debug;
+		};
+		0D41E62824CCDF2200E28492 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = L4M78CKJZX;
+				INFOPLIST_FILE = "Yo!NewsUITests/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.6;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.Yo-NewsUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = NewsApp;
+			};
+			name = Release;
+		};
 		0D77B84824B388B700CB28BA /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -613,7 +724,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/NewsApp.app/NewsApp";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Yo!News.app/Yo!News";
 			};
 			name = Debug;
 		};
@@ -636,13 +747,22 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/NewsApp.app/NewsApp";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Yo!News.app/Yo!News";
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		0D41E62924CCDF2200E28492 /* Build configuration list for PBXNativeTarget "Yo!NewsUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0D41E62724CCDF2200E28492 /* Debug */,
+				0D41E62824CCDF2200E28492 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		0D77B82624B388B500CB28BA /* Build configuration list for PBXProject "NewsApp" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

@@ -40,6 +40,7 @@ class MainViewController: CustomYoNewsViewController {
         super.viewDidLoad()
         navigationItem.leftBarButtonItem = UIBarButtonItem(customView: yoNews)
         // Do any additional setup after loading the view.
+        
         setupTableView()
         viewModel = NewsViewModel(DataServiceNews())
         
@@ -62,6 +63,8 @@ class MainViewController: CustomYoNewsViewController {
 
     fileprivate func setupTableView() {
         view = tableView
+        tableView.accessibilityIdentifier = "newsTable"
+        tableView.isAccessibilityElement = true
         tableView.delegate = self
         tableView.dataSource = self
         tableView.rowHeight = 120
@@ -80,7 +83,7 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let newsCell = tableView.dequeueReusableCell(withIdentifier: "NewsCell", for: indexPath) as! NewsTableViewCell
-        
+        newsCell.isAccessibilityElement = true
         newsCell.article = viewModel?.articleItem(forIndexPath: indexPath)
         
         return newsCell
