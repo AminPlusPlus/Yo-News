@@ -104,16 +104,22 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource {
         let shareAction = UIContextualAction(style: .normal, title: "Share") { (action, view, completionHandler) in
             
            //Share Action
-            let description = "Template Share"
-           // ur
-            let secondActivityItem : NSURL = NSURL(string: "http://your-url.com/")!
-            let shareActivity = UIActivityViewController(activityItems: [description,secondActivityItem], applicationActivities: nil)
+            guard let article = self.viewModel?.articleItem(forIndexPath: indexPath) else {
+                return
+            }
             
-            self.present(shareActivity, animated: true, completion: nil)
-            
+            guard let title = article.title else {return}
+            guard let articleUrl = article.url else {return}
+    
+      
+            //Share Acitivity
+            self.shareAcitivity(description: title, url: articleUrl)
+            //Update table row cell
+            self.tableView.reloadRows(at: [indexPath], with: .right)
             
             
         }
+        
         shareAction.backgroundColor = .darkGray
         shareAction.image = UIImage(systemName: "square.and.arrow.up")
         

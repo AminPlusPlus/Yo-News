@@ -36,4 +36,39 @@ extension UIViewController {
         }
     }
     
+    func shareAcitivity(description : String, url : String ) {
+        
+        // Setting description
+        let firstActivityItem = description
+
+        // Setting url
+        let secondActivityItem : NSURL = NSURL(string: url)!
+        
+        // If you want to use an image
+        let image : UIImage = UIImage(named: "AppIcon")!
+        let activityViewController : UIActivityViewController = UIActivityViewController(
+            activityItems: [firstActivityItem, secondActivityItem, image], applicationActivities: nil)
+        
+
+
+        // Pre-configuring activity items
+        activityViewController.activityItemsConfiguration = [
+        UIActivity.ActivityType.message
+        ] as? UIActivityItemsConfigurationReading
+        
+        // Anything you want to exclude
+        activityViewController.excludedActivityTypes = [
+            UIActivity.ActivityType.postToWeibo,
+            UIActivity.ActivityType.print,
+            UIActivity.ActivityType.assignToContact,
+            UIActivity.ActivityType.saveToCameraRoll,
+            UIActivity.ActivityType.addToReadingList,
+            UIActivity.ActivityType.postToFlickr,
+            UIActivity.ActivityType.postToVimeo,
+            UIActivity.ActivityType.postToTencentWeibo,
+        ]
+        
+        self.present(activityViewController, animated: true, completion: nil)
+    }
+    
 }
