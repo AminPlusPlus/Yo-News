@@ -20,6 +20,7 @@ class MainViewController: CustomYoNewsViewController {
         label.attributedText = titleAttribute
            return label
        }()
+    fileprivate var lastContentOffset: CGFloat = 0
     fileprivate var tableView = UITableView()
     
     
@@ -107,7 +108,7 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource {
         shareAction.image = UIImage(systemName: "square.and.arrow.up")
         return UISwipeActionsConfiguration(actions: [shareAction])
     }
-    
+        
    
         
 }
