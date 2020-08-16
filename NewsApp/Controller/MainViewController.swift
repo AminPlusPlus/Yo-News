@@ -103,9 +103,20 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource {
         
         let shareAction = UIContextualAction(style: .normal, title: "Share") { (action, view, completionHandler) in
             
+           //Share Action
+            let description = "Template Share"
+           // ur
+            let secondActivityItem : NSURL = NSURL(string: "http://your-url.com/")!
+            let shareActivity = UIActivityViewController(activityItems: [description,secondActivityItem], applicationActivities: nil)
+            
+            self.present(shareActivity, animated: true, completion: nil)
+            
+            
+            
         }
         shareAction.backgroundColor = .darkGray
         shareAction.image = UIImage(systemName: "square.and.arrow.up")
+        
         return UISwipeActionsConfiguration(actions: [shareAction])
     }
         
